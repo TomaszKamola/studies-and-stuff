@@ -1,0 +1,3 @@
+Create a simple application with a user interface built using the PyQt5 library, 
+which will plot a user-specified function within a range and step size also 
+specified by the user.
