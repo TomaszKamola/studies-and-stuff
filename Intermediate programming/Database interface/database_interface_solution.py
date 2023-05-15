@@ -284,6 +284,11 @@ Document failed validation, full error: {'index': 0, 'code': 121, 'errInfo': {'f
 # Non of incompatible object was added.
 
 
+
+######################
+# CRUD CLI interface #
+######################
+
 from pprint import pp   # for better output reading
 from pymongo import MongoClient
 from datetime import date
