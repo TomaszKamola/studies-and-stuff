@@ -1,10 +1,3 @@
-"""
-pytest.ini:
-
-[pytest]
-python_files = 132098_pz_lab2.py
-"""
-
 import pytest
 import numpy as np
 
