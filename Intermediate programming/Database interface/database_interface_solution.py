@@ -4,7 +4,6 @@ from bson.objectid import ObjectId
 from collections import OrderedDict
 
 
-## 1
 # Connection configuration
 CONNECTION_STRING = 'mongodb+srv://TomaszKamola:xgQpu7YBi3qPE2VD@cluster0.gvodfaa.mongodb.net/test'
 
@@ -70,7 +69,6 @@ newdata = { "$set": { "title": "Movie123" } }
 sample_collection.update_one(record, newdata)
 
 
-### 2
 ## Create new database along with Schema and collection
 CONNECTION_STRING = "mongodb+srv://TomaszKamola:xgQpu7YBi3qPE2VD@cluster0.gvodfaa.mongodb.net/"
 
@@ -286,7 +284,6 @@ Document failed validation, full error: {'index': 0, 'code': 121, 'errInfo': {'f
 # Non of incompatible object was added.
 
 
-## 3
 from pprint import pp   # for better output reading
 from pymongo import MongoClient
 from datetime import date
