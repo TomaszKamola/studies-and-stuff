@@ -1,28 +1,28 @@
-from pprint import pp   # Dla czytelniejszych informacji zwrotnych
+from pprint import pp   # For more user-friendly prints
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from collections import OrderedDict
 
 
-## Na ocenę 3
-# Konfiguruję połączenie
+## 1
+# Connection configuration
 CONNECTION_STRING = 'mongodb+srv://TomaszKamola:xgQpu7YBi3qPE2VD@cluster0.gvodfaa.mongodb.net/test'
 
 client = MongoClient(CONNECTION_STRING)
 db = client['Test']
 sample_collection = db['Test']
 
-# Wyszukiwanie wszystkich obiektów w kolekcji
+# Find all objects in collection
 for item in sample_collection.find():
     pp(item)
 
-# Wyszukiwanie obiektu po ID
+# Find object by ID
 query1 = sample_collection.find_one(
     { "_id": ObjectId("6404466ad48a0b23e8b2f43d") }
 )
 pp(query1)
 
-# Dodawanie pojedynczego obiektu do kolekcji
+# Add single object to collection
 insertion1 = sample_collection.insert_one(
     {
       "title": "Ratatouille",
@@ -36,7 +36,7 @@ insertion1 = sample_collection.insert_one(
     }
 )
 
-# Dodawanie wielu obiektów do kolekcji
+# Add many objects to collection
 insertion2 = sample_collection.insert_many([
     {
       "title": "Shrek",
@@ -60,18 +60,18 @@ insertion2 = sample_collection.insert_many([
     }
 ])
 
-## Usuwanie obiektu
+## Delete object
 deletion1 = { "_id": ObjectId("6404466ad48a0b23e8b2f43d") }
 sample_collection.delete_one(deletion1)
 
-## Update obiektu
+## Update object
 record = { "title": "Movie12345" }
 newdata = { "$set": { "title": "Movie123" } }
 sample_collection.update_one(record, newdata)
 
 
-### Na ocenę 4
-## Tworzę nową bazę danych wraz ze Schemą i kolekcją
+### 2
+## Create new database along with Schema and collection
 CONNECTION_STRING = "mongodb+srv://TomaszKamola:xgQpu7YBi3qPE2VD@cluster0.gvodfaa.mongodb.net/"
 
 db = MongoClient(CONNECTION_STRING)['BookStore']
@@ -149,7 +149,7 @@ except Exception as e:
     print(e)
 
 
-## Dodaję obiekt zgodny z właściwościami walidacji
+## Add object compatible with validation (for check)
 bookdata = db['BookData']
 
 try:
@@ -220,7 +220,7 @@ for book in bookdata.find():
  'price': 17.99}
 """
 
-# Dodaję obiekt niezgodny z właściwościami walidacji
+# Add object incompatible with validation (for check)
 try:
     insert_incorrect1 = bookdata.insert_one(
         {
@@ -283,16 +283,16 @@ Document failed validation, full error: {'index': 0, 'code': 121, 'errInfo': {'f
  'in_store': False,
  'price': 17.99}
 """
-# Żaden z obiektów z błędną walidacją nie został dodany do kolekcji.
+# Non of incompatible object was added.
 
 
-##Na ocenę 5
-from pprint import pp   # Dla czytelniejszych informacji zwrotnych
+## 3
+from pprint import pp   # for better output reading
 from pymongo import MongoClient
 from datetime import date
 
 
-# Konfiguracja połączenia
+# Connection configuration
 CONNECTION_STRING = "mongodb+srv://TomaszKamola:xgQpu7YBi3qPE2VD@cluster0.gvodfaa.mongodb.net/"
 db = MongoClient(CONNECTION_STRING)['BookStore']
 bookdata = db['BookData']
