@@ -31,7 +31,7 @@ parameters = {
 gscv = GridSearchCV(estimator=knn, param_grid=parameters)
 gscv.fit(X_train, y_train)
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots() 
 ax.errorbar(
     x=n_neighbors,
     y=gscv.cv_results_["mean_test_score"],
