@@ -85,7 +85,7 @@ print("\nGridSearchCV:")
 
 for key, val in means.items():
     print(key, '=' ,val)
-    
+
 """
 GridSearchCV:
 mae_train = 0.6031037727584997
