@@ -1,7 +1,3 @@
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-from matplotlib.colors import ListedColormap
 from sklearn.datasets import load_wine
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
